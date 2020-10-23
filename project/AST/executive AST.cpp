@@ -82,19 +82,19 @@ int main() {
 	}
 	infile.close();
 	outfile.close();
-	ifstream infile("AST_model.txt",ios::in);
-	ofstream outfile("AST_model1.txt",ios::out);
-	if(!outfile){
+	ifstream infile1("AST_model.txt",ios::in);
+	ofstream outfile1("AST_model1.txt",ios::out);
+	if(!outfile1){
 		cout<<"open outfile error!"<<endl;
 		exit(1);
 	} 
-	if(!infile)
+	if(!infile1)
 	{
 		cout<<"open infile error!"<<endl;
 		exit(1);
 	}
 	string s;
-	while(getline(infile,s))
+	while(getline(infile1,s))
 	{
 		string temp="";
 		for(int i=0;i+1<s.size();i++)
@@ -110,10 +110,10 @@ int main() {
 			}
 		}
 		temp.push_back(s[s.size()-1]);
-		outfile<<temp<<endl;
+		outfile1<<temp<<endl;
 	}
-	infile.close();
-	outfile.close();
+	infile1.close();
+	outfile1.close();
 	//system("pause"); 
 	return 0;
 }
