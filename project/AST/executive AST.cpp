@@ -26,6 +26,7 @@ int main() {
 	//in
 	while(!infile.eof()) {
 		ch=infile.get(); //当前字符
+	//	int reserved_tag=0;
 		switch(ch){
 			case 58 :{ //当前字符是冒号
 				outfile.put(ch);
@@ -36,7 +37,8 @@ int main() {
 			case 32 :{ //当前字符是空格 如果已经输出就跳过
 				if(spaceflag==1)	//已输出一个空格 
 					;
-				else{				
+				else
+				{				
 					spaceflag=1;
 					i++;
 					outfile.put('\0');
@@ -80,7 +82,38 @@ int main() {
 	}
 	infile.close();
 	outfile.close();
-	
-	system("pause"); 
+	ifstream infile("AST_model.txt",ios::in);
+	ofstream outfile("AST_model1.txt",ios::out);
+	if(!outfile){
+		cout<<"open outfile error!"<<endl;
+		exit(1);
+	} 
+	if(!infile)
+	{
+		cout<<"open infile error!"<<endl;
+		exit(1);
+	}
+	string s;
+	while(getline(infile,s))
+	{
+		string temp="";
+		for(int i=0;i+1<s.size();i++)
+		{
+			if(s[i]==' '&&s[i+1]==':')
+			{
+				temp.push_back(s[i+1]);
+				i++;
+			}
+			else 
+			{
+				temp.push_back(s[i]);
+			}
+		}
+		temp.push_back(s[s.size()-1]);
+		outfile<<temp<<endl;
+	}
+	infile.close();
+	outfile.close();
+	//system("pause"); 
 	return 0;
 }
