@@ -82,8 +82,8 @@ int main() {
 	}
 	infile.close();
 	outfile.close();
-	ifstream infile1("AST_model.txt",ios::in);
-	ofstream outfile1("AST_model1.txt",ios::out);
+	ifstream infile1("AST_model.txt");
+	ofstream outfile1("AST_model1.txt");
 	if(!outfile1){
 		cout<<"open outfile error!"<<endl;
 		exit(1);
@@ -99,10 +99,13 @@ int main() {
 		string temp="";
 		for(int i=0;i+1<s.size();i++)
 		{
-			if(s[i]==' '&&s[i+1]==':')
+			if(s[i+1]==':')
 			{
+				if(s[i]>='a'&&s[i]<='z')
+					temp.push_back(s[i]);
 				temp.push_back(s[i+1]);
 				i++;
+				//cout<<s[i]<<endl;
 			}
 			else 
 			{
