@@ -13,7 +13,7 @@ void setNode(vector<pair<string,int>>& dic,int NodeNum)
     //对本行进行处理，这里不递归进行了
     string temp=dic[NodeNum].first;
     string num="";
-    for(int i=0;i<temp.size();i++)
+    for(int i=1;i<temp.size();i++)
     {
         if(temp[i]=='@')
         {
@@ -26,10 +26,10 @@ void setNode(vector<pair<string,int>>& dic,int NodeNum)
                    break;
             }
             int number=atoi(num.c_str());
-            if(dic[number].second==unknown&&dic[NodeNum].second==useful)
-            dic[number].second=useful;
+            if(dic[NodeNum].second==useful)
+                dic[number].second=useful;
             else if(dic[number].second==unknown&&dic[NodeNum].second==useless)
-            dic[number].second=useless;
+                dic[number].second=useless;
             i=j-1;
         }
         else
@@ -40,7 +40,7 @@ void setNode(vector<pair<string,int>>& dic,int NodeNum)
 }
 void func2()
 {
-    ifstream infile("AST_model.txt");
+    ifstream infile("AST_model1.txt");
      //打开文件流异常
 	if(!infile)
 	{
@@ -79,17 +79,18 @@ void func2()
         setNode(dic,i);
     }
     //cout<<dic[1].second<<endl;
-    for(int i=1;i<dic.size();i++)
-    {
-        if(dic[i].second==unknown)
-            dic[i].second=useful;
-    }
+    // for(int i=1;i<dic.size();i++)
+    // {
+    //     if(dic[i].second==unknown)
+    //         dic[i].second=useful;
+    // }
     ofstream outfile("AST_model(1).txt");
     for(int i=1;i<dic.size();i++)
     {
         if(dic[i].second==useful)
-         outfile<<dic[i].first<<endl;
+            outfile<<dic[i].first<<endl;
     }
+    //outfile<<"1";
     infile.close();
 	outfile.close();
     return ;

@@ -1,0 +1,16 @@
+@3 translation_unit_decl 
+@4 function_decl name:@5 type:@6 scpe:@3  srcp:test.cpp:2 chain:@7  lang:C link:extern 
+@5 identifier_node strg:main lngt:4 
+@6 function_type size:@8 algn:8 retn:@9  prms:@10 
+@8 integer_cst type:@15 low:8 
+@9 integer_type name:@16 size:@17 algn:32  prec:32 sign:signed min:@18  max:@19 
+@10 tree_list valu:@20 
+@15 integer_type name:@29 size:@30 algn:128  prec:128 sign:unsigned min:@31  max:@32 
+@17 integer_cst type:@15 low:32 
+@18 integer_cst type:@9 high:-1 low:-2147483648 
+@19 integer_cst type:@9 low:2147483647 
+@20 void_type name:@34 algn:8 
+@29 identifier_node strg:bitsizetype lngt:11 
+@30 integer_cst type:@15 low:128 
+@31 integer_cst type:@15 low:0 
+@32 integer_cst type:@15 high:-1 low:-1 
